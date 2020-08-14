@@ -1,0 +1,24 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://192.168.1.66:8102/auth/realms/kastin
+          jwk-set-uri: http://192.168.1.66:8102/auth/realms/kastin/protocol/openid-connect/certs
+      client:
+        registration:
+          keycloak:
+            client-id: kln-user-service
+            client-secret: 478a7fed-52ab-4dce-a931-f73b238def1e
+            authorization-grant-type: client_credentials
+            scope: openid
+            provider: keycloak
+        provider:
+          keycloak:
+            issuer-uri: http://192.168.1.66:8102/auth/realms/kastin
+            authorization-uri: http://192.168.1.66:8102/auth/realms/kastin/protocol/openid-connect/auth
+            token-uri: http://192.168.1.66:8102/auth/realms/kastin/protocol/openid-connect/token
+            user-info-uri: http://192.168.1.66:8102/auth/realms/kastin/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+            jwk-set-uri: http://192.168.1.66:8102/auth/realms/kastin/protocol/openid-connect/certs
+
